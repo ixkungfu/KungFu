@@ -24,7 +24,16 @@ app.get('/about', function(req, res) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.write('Connect ' + req.method);
     res.write('\nURL ' + req.url);
-    res.write('Hello World!');
+    res.write('\nHello World!');
+    res.end();
+});
+
+app.post('/entry', function(req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.write('Connect ' + req.method);
+    res.write('\nURL ' + req.url);
+    res.write('\nHello World!');
+    res.write('\n<pre>' + JSON.stringify(req.getParams()) + '</pre>')
     res.end();
 });
 
