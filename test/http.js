@@ -28,6 +28,6 @@ app.get('/about', function(req, res) {
     res.end();
 });
 
-app.listen(88);
+app.listen(8000);
 
-sys.puts('Server running at http://127.0.0.1:88/');
+sys.puts('Server running at http://127.0.0.1:8000/');
