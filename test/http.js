@@ -20,7 +20,8 @@ function handle(req, res, out) {
 
 var app = new Server(handle);
 
-app.get('/about', function(req, res) {
+app.get('/info', function(req, res) {
+    console.log('Request times: ' + ++count);
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.write('Connect ' + req.method);
     res.write('\nURL ' + req.url);
@@ -28,7 +29,24 @@ app.get('/about', function(req, res) {
     res.end();
 });
 
+app.get(/^\/list/i, function(req, res) {
+    console.log('Request times: ' + ++count);
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.write('list list list!');
+    res.end();
+});
+
+app.get('/about', function(req, res) {
+    console.log('Request times: ' + ++count);
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.write('Connect ' + req.method);
+    res.write('\nURL ' + req.url);
+    res.write('\nAbount Me');
+    res.end();
+});
+
 app.post('/entry', function(req, res) {
+    console.log('Request times: ' + ++count);
     res.writeHead(200, {'Content-Type': 'text/plain'});
     res.write('Connect ' + req.method);
     res.write('\nURL ' + req.url);
